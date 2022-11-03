@@ -4,7 +4,7 @@ fn main() {
 extern crate alloc;
 use fuel_indexer_macros::indexer;
 
-#[indexer(manifest = "../../counter-index.manifest.yaml")]
+#[indexer(manifest = "/home/atul/Projects/fuel-project/indexer/counter-index.manifest.yml")]
 pub mod my_counter_index_module {
 
     fn counter_module_handler_one(event: Count) {

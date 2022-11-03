@@ -1,7 +1,10 @@
 namespace: fuel
 identifier: counter-indexer
-abi: ../counter/out/counter-abi.json
+abi: /home/atul/Projects/fuel-project/counter/out/debug/counter-abi.json
 start_block: 1
 # your smart contract ID
 contract: 0xedc27cce6b5f0cb43766e7623c28f9511d9a526e0501603859bed30943b075b6 
-graphql_schema: ./schema/graphql.schema
+graphql_schema: /home/atul/Projects/fuel-project/indexer/schema/schema.graphql
+# no idea
+module:
+  wasm: target/wasm32-unknown-unknown/release/simple_wasm.wasm
