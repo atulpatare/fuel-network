@@ -1,0 +1,7 @@
+namespace: fuel
+identifier: counter-indexer
+abi: ../counter/out/counter-abi.json
+start_block: 1
+# your smart contract ID
+contract: 0xedc27cce6b5f0cb43766e7623c28f9511d9a526e0501603859bed30943b075b6 
+graphql_schema: ./schema/graphql.schema
