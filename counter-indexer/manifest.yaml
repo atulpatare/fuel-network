@@ -1,6 +1,6 @@
-namespace: counter
+namespace: counter_indexer
 identifier: counter-indexer
 abi: /home/atul/Projects/fuel-project/counter/out/debug/counter-abi.json
 graphql_schema: /home/atul/Projects/fuel-project/counter-indexer/schema/schema.graphql
 module:
-  wasm: /home/atul/Projects/fuel-project/counter-indexer/target/wasm32-unknown-unknown/release/counter_indexer.wasm
+  wasm: /home/atul/Projects/fuel-project/counter-indexer/counter_indexer.wasm
