@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Provider, Wallet, AbstractAddress } from "fuels";
+import type { Provider, BaseWalletLocked, AbstractAddress } from "fuels";
 import { Interface, Contract } from "fuels";
 import type { CounterAbi, CounterAbiInterface } from "../CounterAbi";
 const _abi = [
@@ -31,8 +31,42 @@ const _abi = [
   },
   {
     type: "function",
+    name: "increment_custom",
+    inputs: [
+      {
+        type: "u64",
+        name: "value",
+      },
+    ],
+    outputs: [
+      {
+        type: "()",
+        name: "",
+        components: [],
+      },
+    ],
+  },
+  {
+    type: "function",
     name: "decrement",
     inputs: [],
+    outputs: [
+      {
+        type: "()",
+        name: "",
+        components: [],
+      },
+    ],
+  },
+  {
+    type: "function",
+    name: "decrement_custom",
+    inputs: [
+      {
+        type: "u64",
+        name: "value",
+      },
+    ],
     outputs: [
       {
         type: "()",
@@ -50,7 +84,7 @@ export class CounterAbi__factory {
   }
   static connect(
     id: string | AbstractAddress,
-    walletOrProvider: Wallet | Provider
+    walletOrProvider: BaseWalletLocked | Provider
   ): CounterAbi {
     return new Contract(id, _abi, walletOrProvider) as unknown as CounterAbi;
   }

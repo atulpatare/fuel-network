@@ -2,23 +2,36 @@
   "types": [
     {
       "typeId": 0,
-      "type": "struct Count",
+      "type": "()",
+      "components": [],
+      "typeParameters": null
+    },
+    {
+      "typeId": 1,
+      "type": "enum MyError",
       "components": [
         {
-          "name": "id",
-          "type": 1,
-          "typeArguments": null
-        },
-        {
-          "name": "count",
-          "type": 1,
+          "name": "Zero",
+          "type": 0,
           "typeArguments": null
         }
       ],
       "typeParameters": null
     },
     {
-      "typeId": 1,
+      "typeId": 2,
+      "type": "struct ValueUpdated",
+      "components": [
+        {
+          "name": "counter",
+          "type": 3,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 3,
       "type": "u64",
       "components": null,
       "typeParameters": null
@@ -30,10 +43,123 @@
       "name": "count",
       "output": {
         "name": "",
+        "type": 3,
+        "typeArguments": null
+      }
+    },
+    {
+      "inputs": [],
+      "name": "increment",
+      "output": {
+        "name": "",
+        "type": 0,
+        "typeArguments": null
+      }
+    },
+    {
+      "inputs": [
+        {
+          "name": "value",
+          "type": 3,
+          "typeArguments": null
+        }
+      ],
+      "name": "increment_custom",
+      "output": {
+        "name": "",
+        "type": 0,
+        "typeArguments": null
+      }
+    },
+    {
+      "inputs": [],
+      "name": "decrement",
+      "output": {
+        "name": "",
+        "type": 0,
+        "typeArguments": null
+      }
+    },
+    {
+      "inputs": [
+        {
+          "name": "value",
+          "type": 3,
+          "typeArguments": null
+        }
+      ],
+      "name": "decrement_custom",
+      "output": {
+        "name": "",
         "type": 0,
         "typeArguments": null
       }
     }
   ],
-  "loggedTypes": []
+  "loggedTypes": [
+    {
+      "logId": 0,
+      "loggedType": {
+        "name": "",
+        "type": 2,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 1,
+      "loggedType": {
+        "name": "",
+        "type": 2,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 2,
+      "loggedType": {
+        "name": "",
+        "type": 1,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 3,
+      "loggedType": {
+        "name": "",
+        "type": 2,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 4,
+      "loggedType": {
+        "name": "",
+        "type": 2,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 5,
+      "loggedType": {
+        "name": "",
+        "type": 1,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 6,
+      "loggedType": {
+        "name": "",
+        "type": 1,
+        "typeArguments": []
+      }
+    },
+    {
+      "logId": 7,
+      "loggedType": {
+        "name": "",
+        "type": 2,
+        "typeArguments": []
+      }
+    }
+  ]
 }

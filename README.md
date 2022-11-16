@@ -31,4 +31,5 @@ cargo generate --init fuellabs/sway templates/sway-test-rs --name counter-contra
 
 ### Links
 - [Transactions](https://fuellabs.github.io/block-explorer-v2/address/fuel1yp9mjqxvkj9mk99j6g84yw57t5y2uh320f3nytqpwermnj54s0mq7uyugw)
-- Contract Id `a2f2445abbc6972b4aaa597c756d991da45b9695358f1fc1464fa3776f3799d7`
+- Contract Id `0x1b844c9a56aa59e14668ccaaf2113e83227f5d2e149ef5966a317ede691c1a5e`
+

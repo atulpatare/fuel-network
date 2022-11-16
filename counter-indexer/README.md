@@ -3,6 +3,8 @@
 ### Build
 ```
 cargo build --release
+# to remove errant symbols from wasm
+./wasm_clip.sh counter_indexer.wasm 
 ```
 
 ### Run

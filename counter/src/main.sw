@@ -1,18 +1,52 @@
 contract;
 
-use std::{address::Address, hash::sha256};
+dep errors;
+dep r#abi;
 
-struct Count {
-    id: u64,
-    count: u64,
+use std::{logging::log};
+use errors::MyError;
+use abi::Counter;
+
+storage {
+    counter: u64 = 0,
 }
 
-abi Counter {
-    fn count() -> Count;
+// Events
+struct ValueUpdated {
+    counter: u64,
 }
 
 impl Counter for Contract {
-    fn count() -> Count {
-        Count{ id: 1, count: 1 }
+    #[storage(read)]
+    fn count() -> u64 {
+        log(ValueUpdated{ counter: storage.counter });
+        storage.counter
+    }
+
+    #[storage(read, write)]
+    fn increment() {
+        storage.counter += 1;
+        log(ValueUpdated{ counter: storage.counter });
+    }
+
+    #[storage(read, write)]
+    fn increment_custom(value: u64) {
+        require(value > 0, MyError::Zero);
+        storage.counter += value;
+        log(ValueUpdated{ counter: storage.counter });
+    }
+
+    #[storage(read, write)]
+    fn decrement() {
+        storage.counter -= 1;
+        log(ValueUpdated{ counter: storage.counter });
+    }
+
+    #[storage(read, write)]
+    fn decrement_custom(value: u64) {
+        require(value > 0, MyError::Zero);
+        require(storage.counter - value > 0, MyError::Zero);
+        storage.counter -= value;
+        log(ValueUpdated{ counter: storage.counter });
     }
 }

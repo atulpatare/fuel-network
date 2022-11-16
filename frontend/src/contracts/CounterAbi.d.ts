@@ -17,7 +17,9 @@ interface CounterAbiInterface extends Interface {
   functions: {
     count: FunctionFragment;
     increment: FunctionFragment;
+    increment_custom: FunctionFragment;
     decrement: FunctionFragment;
+    decrement_custom: FunctionFragment;
   };
 
   encodeFunctionData(functionFragment: "count", values?: undefined): Uint8Array;
@@ -26,8 +28,16 @@ interface CounterAbiInterface extends Interface {
     values?: undefined
   ): Uint8Array;
   encodeFunctionData(
+    functionFragment: "increment_custom",
+    values: [BigNumberish]
+  ): Uint8Array;
+  encodeFunctionData(
     functionFragment: "decrement",
     values?: undefined
+  ): Uint8Array;
+  encodeFunctionData(
+    functionFragment: "decrement_custom",
+    values: [BigNumberish]
   ): Uint8Array;
 
   decodeFunctionData(functionFragment: "count", data: BytesLike): DecodedValue;
@@ -36,7 +46,15 @@ interface CounterAbiInterface extends Interface {
     data: BytesLike
   ): DecodedValue;
   decodeFunctionData(
+    functionFragment: "increment_custom",
+    data: BytesLike
+  ): DecodedValue;
+  decodeFunctionData(
     functionFragment: "decrement",
+    data: BytesLike
+  ): DecodedValue;
+  decodeFunctionData(
+    functionFragment: "decrement_custom",
     data: BytesLike
   ): DecodedValue;
 }
@@ -48,6 +66,10 @@ export class CounterAbi extends Contract {
 
     increment: InvokeFunction<[], void>;
 
+    increment_custom: InvokeFunction<[value: BigNumberish], void>;
+
     decrement: InvokeFunction<[], void>;
+
+    decrement_custom: InvokeFunction<[value: BigNumberish], void>;
   };
 }

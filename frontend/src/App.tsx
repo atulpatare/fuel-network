@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Wallet } from "fuels";
+import { BaseWalletUnlocked } from "fuels";
 import "./App.css";
 // Import the contract factory -- you can find the name in index.ts.
 // You can also do command + space and the compiler will suggest the correct name.
@@ -10,7 +10,7 @@ const CONTRACT_ID = process.env.REACT_APP_CONTRACT_ID || '';
 const WALLET_SECRET = process.env.REACT_APP_WALLET_SECRET || '';
 // Create a Wallet from given secretKey in this case
 // The one we configured at the chainConfig.json
-const wallet = new Wallet(WALLET_SECRET, "https://node-beta-1.fuel.network/graphql");
+const wallet = new BaseWalletUnlocked(WALLET_SECRET, "http://127.0.0.1:4000/graphql");
 // Connects out Contract instance to the deployed contract
 // address using the given wallet.
 const contract = CounterAbi__factory.connect(CONTRACT_ID, wallet);
@@ -23,6 +23,7 @@ function App() {
       // Executes the counter function to query the current contract state
       // the `.get()` is read-only, because of this it don't expand coins.
       const { value } = await contract.functions.count().get();
+      console.log(value);
       setCounter(Number(value));
     }
     main();
