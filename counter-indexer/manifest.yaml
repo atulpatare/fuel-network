@@ -1,0 +1,6 @@
+namespace: fuel
+identifier: counter-indexer
+abi: abi/counter-abi.json
+graphql_schema: schema/schema.graphql
+module:
+  wasm: target/wasm32-unknown-unknown/release/counter_wasm.wasm
