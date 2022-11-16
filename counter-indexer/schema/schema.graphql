@@ -10,3 +10,9 @@ type CountEntity {
     id: ID!
     count: UInt8!
 }
+
+type AdjustedCountEntity {
+    id: ID!
+    count: CountEntity!
+    adjusted_count: UInt8!
+}
