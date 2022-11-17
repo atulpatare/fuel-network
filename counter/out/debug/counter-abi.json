@@ -20,18 +20,6 @@
     },
     {
       "typeId": 2,
-      "type": "struct ValueUpdated",
-      "components": [
-        {
-          "name": "counter",
-          "type": 3,
-          "typeArguments": null
-        }
-      ],
-      "typeParameters": null
-    },
-    {
-      "typeId": 3,
       "type": "u64",
       "components": null,
       "typeParameters": null
@@ -43,7 +31,7 @@
       "name": "count",
       "output": {
         "name": "",
-        "type": 3,
+        "type": 2,
         "typeArguments": null
       }
     },
@@ -60,7 +48,7 @@
       "inputs": [
         {
           "name": "value",
-          "type": 3,
+          "type": 2,
           "typeArguments": null
         }
       ],
@@ -84,7 +72,7 @@
       "inputs": [
         {
           "name": "value",
-          "type": 3,
+          "type": 2,
           "typeArguments": null
         }
       ],
@@ -101,7 +89,7 @@
       "logId": 0,
       "loggedType": {
         "name": "",
-        "type": 2,
+        "type": 1,
         "typeArguments": []
       }
     },
@@ -109,7 +97,7 @@
       "logId": 1,
       "loggedType": {
         "name": "",
-        "type": 2,
+        "type": 1,
         "typeArguments": []
       }
     },
@@ -118,46 +106,6 @@
       "loggedType": {
         "name": "",
         "type": 1,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 3,
-      "loggedType": {
-        "name": "",
-        "type": 2,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 4,
-      "loggedType": {
-        "name": "",
-        "type": 2,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 5,
-      "loggedType": {
-        "name": "",
-        "type": 1,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 6,
-      "loggedType": {
-        "name": "",
-        "type": 1,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 7,
-      "loggedType": {
-        "name": "",
-        "type": 2,
         "typeArguments": []
       }
     }

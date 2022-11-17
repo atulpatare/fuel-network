@@ -2,7 +2,7 @@ namespace: counter_indexer
 identifier: counter-indexer
 abi: /home/atul/Projects/fuel-project/counter/out/debug/counter-abi.json
 graphql_schema: /home/atul/Projects/fuel-project/counter-indexer/schema/schema.graphql
-contract: 0x10767fb7a24678f190ddf4944051f9b727e7dcefbc99e8308f79612af1adbc51
+contract: 0xfe9a7fed370acddf48104377249bca6f23fbc39c2ef7bec31d30fa2cf295eded
 start_block: 1
 module:
   wasm: /home/atul/Projects/fuel-project/counter-indexer/counter_indexer.wasm
