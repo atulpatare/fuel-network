@@ -1,4 +1,4 @@
-namespace: counter_indexer
+namespace: counter_indexer_one
 identifier: counter-indexer
 abi: /home/atul/Projects/fuel-project/counter/out/debug/counter-abi.json
 graphql_schema: /home/atul/Projects/fuel-project/counter-indexer/schema/schema.graphql

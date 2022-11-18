@@ -19,14 +19,14 @@ impl Counter for Contract {
     fn increment(num: u64) -> IncrementEvent {
         IncrementEvent {
             id: num,
-            count: 1,
+            count: num,
         }
     }
 
     fn decrement(num: u64) -> DecrementEvent {
         DecrementEvent {
             id: num,
-            count: 1,
+            count: num,
         }
     }
 }
