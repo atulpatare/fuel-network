@@ -3,16 +3,16 @@ schema {
 }
 
 type QueryRoot {
-    count: CountEntity
+    increment: IncrementEntity
+    decrement: DecrementEntity
 }
 
-type CountEntity {
+type IncrementEntity {
     id: ID!
-    count: UInt8!
+    count: Int8!
 }
 
-type AdjustedCountEntity {
+type DecrementEntity {
     id: ID!
-    count: CountEntity!
-    adjusted_count: UInt8!
+    count: Int8!
 }

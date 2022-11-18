@@ -2,17 +2,33 @@
   "types": [
     {
       "typeId": 0,
-      "type": "()",
-      "components": [],
+      "type": "struct DecrementEvent",
+      "components": [
+        {
+          "name": "id",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "count",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
       "typeParameters": null
     },
     {
       "typeId": 1,
-      "type": "enum MyError",
+      "type": "struct IncrementEvent",
       "components": [
         {
-          "name": "Zero",
-          "type": 0,
+          "name": "id",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "count",
+          "type": 2,
           "typeArguments": null
         }
       ],
@@ -27,56 +43,29 @@
   ],
   "functions": [
     {
-      "inputs": [],
-      "name": "count",
-      "output": {
-        "name": "",
-        "type": 2,
-        "typeArguments": null
-      }
-    },
-    {
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "num",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
       "name": "increment",
       "output": {
         "name": "",
-        "type": 0,
+        "type": 1,
         "typeArguments": null
       }
     },
     {
       "inputs": [
         {
-          "name": "value",
+          "name": "num",
           "type": 2,
           "typeArguments": null
         }
       ],
-      "name": "increment_custom",
-      "output": {
-        "name": "",
-        "type": 0,
-        "typeArguments": null
-      }
-    },
-    {
-      "inputs": [],
       "name": "decrement",
-      "output": {
-        "name": "",
-        "type": 0,
-        "typeArguments": null
-      }
-    },
-    {
-      "inputs": [
-        {
-          "name": "value",
-          "type": 2,
-          "typeArguments": null
-        }
-      ],
-      "name": "decrement_custom",
       "output": {
         "name": "",
         "type": 0,
@@ -84,30 +73,5 @@
       }
     }
   ],
-  "loggedTypes": [
-    {
-      "logId": 0,
-      "loggedType": {
-        "name": "",
-        "type": 1,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 1,
-      "loggedType": {
-        "name": "",
-        "type": 1,
-        "typeArguments": []
-      }
-    },
-    {
-      "logId": 2,
-      "loggedType": {
-        "name": "",
-        "type": 1,
-        "typeArguments": []
-      }
-    }
-  ]
+  "loggedTypes": []
 }

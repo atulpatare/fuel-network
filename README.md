@@ -2,31 +2,37 @@
 A simple counter example with contract and frontend integration along with 
 indexer to index the contract
 
-### Contract
-1. Build
+### Execution
+- Run a local fuel node
 ```
+fuel-core run --db-type in-memory 
+```
+
+- Build and deploy the contract
+```
+cd counter
 forc build
+
+# copy the contract id
+forc deploy --url http://127.0.0.1:4000 --unsigned --gas-price 0
 ```
 
-2. Run tests
+- Build the indexer
 ```
-cargo test
-```
-
-3. Deploy on testnet
-```
-forc deploy --url https://node-beta-1.fuel.network/graphql --gas-price 1
-# enter the wallet address
-# copy the tx id or message and sign using
-
-forc wallet sign <TX_MSG> <IDX>
-# copy the sign message paste it in the deploy terminal
-# get the final transaction hash, look it up on explorer
+cd counter-indexer
+# paste the contract id in manifest
+cargo build --release
 ```
 
-4. To add tests
+- Run the indexer
 ```
-cargo generate --init fuellabs/sway templates/sway-test-rs --name counter-contract
+cargo run --bin fuel-indexer -- --manifest <full-project-path>/manifest.yaml
+```
+
+- Exeecute the rust code to create transactions
+```
+cd counter-rust
+cargo run -p counter-rust
 ```
 
 ### Links

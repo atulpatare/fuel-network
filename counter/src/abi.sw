@@ -1,8 +1,12 @@
 library r#abi;
 
+pub struct ValueUpdated {
+    counter: u64,
+}
+
 abi Counter {
     #[storage(read, write)]
-    fn increment();
+    fn increment() -> ValueUpdated;
 
     #[storage(read, write)]
     fn increment_custom(value: u64);
