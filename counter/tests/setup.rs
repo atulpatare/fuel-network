@@ -1,4 +1,5 @@
 use fuels::{prelude::*, tx::ContractId};
+use fuels::contract::contract::CallResponse;
 // Load abi from json
 abigen!(MyContract, "out/debug/counter-abi.json");
 
@@ -10,6 +11,7 @@ pub async fn get_contract_instance() -> (MyContract, ContractId) {
             Some(1),             /* Single coin (UTXO) */
             Some(1_000_000_000), /* Amount per coin */
         ),
+        None,
         None,
     )
     .await;
@@ -29,4 +31,16 @@ pub async fn get_contract_instance() -> (MyContract, ContractId) {
     let instance = MyContract::new(id.clone(), wallet);
 
     (instance, id.into())
+}
+
+pub async fn increment_fn(instance: &MyContract, value: u64) -> CallResponse<()> {
+    instance.methods().increment(value).call().await.unwrap()
+}
+
+pub async fn decrement_fn(instance: &MyContract, value: u64) -> CallResponse<()> {
+    instance.methods().decrement(value).call().await.unwrap()
+}
+
+pub async fn count_fn(instance: &MyContract) -> u64 {
+    instance.methods().count().simulate().await.unwrap().value
 }

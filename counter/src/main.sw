@@ -1,32 +1,39 @@
 contract;
 
-abi Counter {
-    fn increment(num: u64) -> IncrementEvent;
-    fn decrement(num: u64) -> DecrementEvent;
-}
+dep errors;
+dep interface;
 
-pub struct IncrementEvent {
-    id: u64,
-    count: u64,
-}
+use std::logging::log;
 
-pub struct DecrementEvent {
-    id: u64,
-    count: u64,
+use errors::MyError;
+use interface::{Counter, IncrementEvent, DecrementEvent};
+
+storage {
+    counter: u64 = 0,
 }
 
 impl Counter for Contract {
-    fn increment(num: u64) -> IncrementEvent {
-        IncrementEvent {
-            id: num,
-            count: num,
-        }
+    #[storage(read)]
+    fn count() -> u64 {
+        storage.counter
     }
 
-    fn decrement(num: u64) -> DecrementEvent {
-        DecrementEvent {
+    #[storage(read, write)]
+    fn increment(num: u64) {
+        storage.counter += num;
+        log(IncrementEvent {
             id: num,
             count: num,
-        }
+        });
+    }
+
+    #[storage(read, write)]
+    fn decrement(num: u64) {
+        require(num < storage.counter, MyError::CannotDecrement);
+        storage.counter -= num;
+        log(DecrementEvent {
+            id: num,
+            count: num,
+        })
     }
 }

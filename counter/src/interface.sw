@@ -1,22 +1,22 @@
-library r#abi;
+library interface;
 
-pub struct ValueUpdated {
-    counter: u64,
+pub struct IncrementEvent {
+    id: u64,
+    count: u64,
+}
+
+pub struct DecrementEvent {
+    id: u64,
+    count: u64,
 }
 
 abi Counter {
-    #[storage(read, write)]
-    fn increment() -> ValueUpdated;
-
-    #[storage(read, write)]
-    fn increment_custom(value: u64);
-
-    #[storage(read, write)]
-    fn decrement();
-
-    #[storage(read, write)]
-    fn decrement_custom(value: u64);
-
     #[storage(read)]
     fn count() -> u64;
+
+    #[storage(read, write)]
+    fn increment(num: u64);
+
+    #[storage(read, write)]
+    fn decrement(num: u64);
 }
