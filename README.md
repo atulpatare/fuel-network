@@ -1,41 +1,59 @@
-## Fuel
-A simple counter example with contract and frontend integration along with 
-indexer to index the contract
+<div align="center">
+    <h3><samp>A simple counter example on fuel.</samp></h3>
+    <h4><samp>sway contract, indexer, rust sdk contract call, and react app</samp></h4>
+</div>
+
+### Pre-requisites
+
+- Get the fuel toolchain [here](https://github.com/FuelLabs/fuelup#quickstart)
+- Clone and build the indexer
+
+```shell
+git clone https://github.com/FuelLabs/fuel-indexer.git
+cargo build --release
+```
+
+- Copy the indexer binary into project `bin` folder
+
+```shell
+cp target/release/fuel-indexer <project-root>/counter-indexer/bin/
+```
 
 ### Execution
+
 - Run a local fuel node
+
 ```
 fuel-core run --db-type in-memory 
 ```
 
-- Build and deploy the contract
-```
-cd counter
-forc build
+- Build and test the contract
 
-# copy the contract id
-forc deploy --url http://127.0.0.1:4000 --unsigned --gas-price 0
+```
+forc build -p counter
+cargo test
 ```
 
-- Build the indexer
+- Run the contract calls
+
 ```
+cd counter-rust && cargo run
+```
+
+- Build and start indexing
+
+```shell
 cd counter-indexer
-# paste the contract id in manifest
+
+# build target will auto set
 cargo build --release
-```
 
-- Run the indexer
-```
-cargo run --bin fuel-indexer -- --manifest <full-project-path>/manifest.yaml
-```
+# snip the erands
+./wasm_clip.sh
 
-- Exeecute the rust code to create transactions
-```
-cd counter-rust
-cargo run -p counter-rust
-```
+# run the indexer
+./bin/fuel-indexer --manifest manifest.yaml
 
-### Links
-- [Transactions](https://fuellabs.github.io/block-explorer-v2/address/fuel1yp9mjqxvkj9mk99j6g84yw57t5y2uh320f3nytqpwermnj54s0mq7uyugw)
-- Contract Id `0x1b844c9a56aa59e14668ccaaf2113e83227f5d2e149ef5966a317ede691c1a5e`
-
+# to run with custom config
+./bin/fuel-indexer --manifest manifest.yaml --config config.yaml
+```
