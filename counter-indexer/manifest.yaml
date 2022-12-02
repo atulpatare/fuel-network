@@ -1,8 +1,6 @@
-namespace: counter_indexer_one
+namespace: counter_indexer
 identifier: counter-indexer
-abi: /home/atul/Projects/fuel-project/counter/out/debug/counter-abi.json
-graphql_schema: /home/atul/Projects/fuel-project/counter-indexer/schema/schema.graphql
-contract: 0x2377c0372f8ec635aacd88b43823b098650c39bfaa4e37c4295a1d6598bb9cbf
-start_block: 1
+abi: ../counter/out/debug/counter-abi.json
+graphql_schema: schema/schema.graphql
 module:
-  wasm: /home/atul/Projects/fuel-project/counter-indexer/counter_indexer.wasm
+  wasm: target/wasm32-unknown-unknown/release/counter_indexer.wasm
