@@ -1,1 +1,10 @@
 values
+
+# build files
+target/
+
+# lock files
+*.lock
+
+# ide files
+.idea/
